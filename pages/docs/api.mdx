@@ -1,0 +1,90 @@
+# API Reference
+
+Technical documentation for JobForest API.
+
+## Authentication
+
+All API requests require authentication using an API key.
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  https://api.jobforest.com/v1/users
+```
+
+## Endpoints
+
+### Users
+
+#### Get User Profile
+```http
+GET /api/v1/users/{userId}
+```
+
+**Response:**
+```json
+{
+  "id": "123",
+  "name": "John Doe",
+  "email": "john@example.com",
+  "profile": {
+    "skills": ["JavaScript", "React"],
+    "experience": 5
+  }
+}
+```
+
+### Jobs
+
+#### List Jobs
+```http
+GET /api/v1/jobs
+```
+
+**Query Parameters:**
+- `page` - Page number (default: 1)
+- `limit` - Items per page (default: 20)
+- `location` - Filter by location
+- `category` - Filter by category
+
+#### Get Job Details
+```http
+GET /api/v1/jobs/{jobId}
+```
+
+### Learning Resources
+
+#### Get Courses
+```http
+GET /api/v1/courses
+```
+
+#### Get Course Details
+```http
+GET /api/v1/courses/{courseId}
+```
+
+## Rate Limits
+
+- **Free tier**: 100 requests/hour
+- **Pro tier**: 1000 requests/hour
+- **Enterprise**: Unlimited
+
+## Error Codes
+
+| Code | Description |
+|------|-------------|
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 404 | Not Found |
+| 429 | Rate Limit Exceeded |
+| 500 | Server Error |
+
+## SDKs
+
+We provide official SDKs for:
+- JavaScript/TypeScript
+- Python
+- Go
+
+Check our [GitHub](https://github.com/jobforest) for SDK examples.
+
